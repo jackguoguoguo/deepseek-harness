@@ -3,6 +3,9 @@
     - button "Use the read tool twice" [disabled]
   - button "More actions":
     - img
+  - group "Context 0% used, 7.8K input tokens, 103 output tokens":
+    - progressbar "0% used"
+    - text: 0% 7.8K 103
   - button "Open right sidebar":
     - img
   - tablist:

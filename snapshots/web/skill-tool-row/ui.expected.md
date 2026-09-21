@@ -3,6 +3,9 @@
     - button "Load the editing-cordis-compositions ski" [disabled]
   - button "More actions":
     - img
+  - group "Context 0% used, 280 input tokens, 30 output tokens":
+    - progressbar "0% used"
+    - text: 0% 280 30
   - button "Open right sidebar":
     - img
   - tablist:

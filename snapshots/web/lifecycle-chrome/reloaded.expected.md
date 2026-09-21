@@ -5,6 +5,9 @@
   - text: Standard mode
   - button "More actions":
     - img
+  - group "Context 8% used, 10K input tokens, 21 output tokens":
+    - progressbar "8% used"
+    - text: 8% 10K 21
   - button "Open right sidebar":
     - img
   - tablist:

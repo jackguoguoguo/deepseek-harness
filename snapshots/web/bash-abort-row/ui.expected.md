@@ -3,6 +3,9 @@
     - 'button "Run two shell commands: wait" [disabled]'
   - button "More actions":
     - img
+  - group "Context 0% used, 10 input tokens, 10 output tokens":
+    - progressbar "0% used"
+    - text: 0% 10 10
   - button "Open right sidebar":
     - img
   - tablist:

@@ -7,6 +7,9 @@
     - 'button "Switch subagent: example editor"': example editor
   - button "More actions":
     - img
+  - group "Context 0% used, 0 input tokens, 0 output tokens":
+    - progressbar "0% used"
+    - text: 0% 0 0
   - button "Open right sidebar":
     - img
   - tablist:

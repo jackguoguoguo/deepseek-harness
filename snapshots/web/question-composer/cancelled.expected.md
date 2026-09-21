@@ -3,6 +3,9 @@
     - button "Use the ask_user_question tool to" [disabled]
   - button "More actions":
     - img
+  - group "Context 3% used, 4.2K input tokens, 158 output tokens":
+    - progressbar "3% used"
+    - text: 3% 4.2K 158
   - button "Open right sidebar":
     - img
   - tablist:
