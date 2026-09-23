@@ -38,6 +38,13 @@ declare module '@deepseek-ai/dsh-client-ui-slots' {
      * slot.
      */
     'tool.call.images': { kind: 'single'; scope: 'session'; owner: ToolImagesOwnerProps }
+    /**
+     * Review decision of one Tool call, rendered beside its row. A feature that
+     * folds the Session's approval events owns this slot; with no occupant the
+     * row draws no label. Declared here so the Tool call tree can host it
+     * without knowing which package supplies the label.
+     */
+    'tool.call.review': { kind: 'single'; scope: 'session'; owner: ToolReviewOwnerProps }
   }
 }
 
@@ -49,6 +56,14 @@ export interface ToolImagesOwnerProps {
   loadImage: MessageImageLoader
   /** Horizontal placement inside the owning record. */
   align: 'start' | 'end'
+}
+
+/** Owner currency of the per-call review-label slot: the call's identity. */
+export interface ToolReviewOwnerProps {
+  /** Tool call identity, stable across running and settled forms. */
+  callId: string
+  /** Wire Tool name. */
+  toolName: string
 }
 
 /** Standard owner currency supplied to every atomic Tool view. */
@@ -98,6 +113,6 @@ export type ToolHostInfoInjected = {
 
 /** Full props of the Tool call-tree renderer registered as a `tool-call` Chat Node. */
 export type ToolTreeProps = PropsRuntime<'conversation.chat.node', 'tool-call'>
-  & PropsRenderSlots<'tool.call.toolview'>
+  & PropsRenderSlots<'tool.call.toolview' | 'tool.call.review'>
   & PropsLocale<'conversation'>
   & InjectFace<ToolHostInfoInjected>

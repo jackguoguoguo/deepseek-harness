@@ -377,6 +377,11 @@
     - id: ui-trajectory
       name: '@deepseek-ai/dsh-client-ui-trajectory'
 
+    # Tool-call run state: a right-Sidebar terminal-style window streaming command
+    # and Tool execution, plus the green/red review label beside each Tool call.
+    - id: ui-runstate
+      name: '@deepseek-ai/dsh-client-ui-runstate'
+
 # ── the agent plane moves behind agent presets ─────────────────────────────
 #
 # Every row below composes what ONE agent contributes to the host registries:

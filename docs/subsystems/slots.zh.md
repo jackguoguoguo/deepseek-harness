@@ -141,6 +141,7 @@ root
 │     │     │  ├─ conversation.chat.turnTail
 │     │     │  └─ tool.call.toolview
 │     │     │     ├─ tool.call.images
+│     │     │     ├─ tool.call.review
 │     │     │     └─ tool.view.cordis
 │     │     ├─ conversation.message.images
 │     │     └─ conversation.trajectory.images

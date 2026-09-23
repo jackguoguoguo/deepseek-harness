@@ -1,0 +1,108 @@
+/* The pane body fills the panel's height and scrolls as operations stream in. */
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 0;
+  padding: 8px 12px;
+  overflow-y: auto;
+  color: var(--dsw-alias-label-primary);
+  font-family: var(--dsh-font-family-mono, ui-monospace, "SFMono-Regular", Menlo, monospace);
+  font-size: var(--dsh-content-font-size-secondary, 13px);
+  line-height: 1.6;
+  background: var(--dsw-alias-bg-base);
+}
+
+.empty {
+  padding: 16px 12px;
+  color: var(--dsw-alias-label-tertiary);
+  font-family: var(--dsh-font-family, inherit);
+  font-size: var(--dsh-content-font-size-secondary, 13px);
+}
+
+.call,
+.review {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+  padding: 1px 0;
+}
+
+.glyph {
+  flex: none;
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.tool {
+  color: var(--dsw-alias-label-secondary);
+  font-weight: 600;
+}
+
+.command {
+  color: var(--dsw-alias-label-primary);
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.status {
+  flex: none;
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.duration {
+  flex: none;
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.reviewLabel {
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.accepted {
+  flex: none;
+  color: var(--dsw-alias-state-success-primary);
+  font-weight: 600;
+}
+
+.rejected {
+  flex: none;
+  color: var(--dsw-alias-state-error-primary);
+  font-weight: 600;
+}
+
+/* Output block: monospaced, scrolls horizontally, reads as a shell result. */
+.output {
+  flex: 1 1 100%;
+  margin: 2px 0 4px;
+  padding: 6px 8px;
+  overflow-x: auto;
+  color: var(--dsw-alias-label-secondary);
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: var(--dsw-alias-bg-l1, var(--dsw-alias-bg-base));
+  border-radius: 4px;
+}
+
+/* Per-state accent on the whole call line. */
+.call[data-runstate-state='running'] .glyph {
+  color: var(--dsw-alias-label-secondary);
+}
+
+.call[data-runstate-state='ok'] .glyph {
+  color: var(--dsw-alias-state-success-primary);
+}
+
+.call[data-runstate-state='error'] .glyph,
+.call[data-runstate-state='error'] .status {
+  color: var(--dsw-alias-state-error-primary);
+}
+
+.call[data-runstate-state='interrupted'] .glyph,
+.call[data-runstate-state='interrupted'] .status {
+  color: var(--dsw-alias-label-secondary);
+}

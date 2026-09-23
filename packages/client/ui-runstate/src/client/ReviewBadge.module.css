@@ -1,0 +1,27 @@
+/* A compact inline tag sitting next to a tool-call row's title. */
+.approved,
+.denied {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+  padding: 0 6px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 600;
+  border-radius: 4px;
+  border: 0.5px solid transparent;
+}
+
+/* Green for approved. */
+.approved {
+  color: var(--dsw-alias-state-success-primary);
+  background: color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent);
+  border-color: color-mix(in srgb, var(--dsw-alias-state-success-primary) 28%, transparent);
+}
+
+/* Red for denied. */
+.denied {
+  color: var(--dsw-alias-state-error-primary);
+  background: color-mix(in srgb, var(--dsw-alias-state-error-primary) 12%, transparent);
+  border-color: color-mix(in srgb, var(--dsw-alias-state-error-primary) 28%, transparent);
+}
