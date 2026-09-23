@@ -12,7 +12,7 @@ export type RunstateReviewBadgeProps =
 
 /** Render the review decision for one tool call, or nothing if none was recorded. */
 export function RunstateReviewBadge({ callId, useRunstate, t }: RunstateReviewBadgeProps): ReactNode {
-  const decision = useRunstate(s => s.reviews.get(callId))
+  const decision = useRunstate?.(s => s.reviews.get(callId))
   if (decision === undefined) return null
   const approved = decision === 'approved'
   return (

@@ -6,11 +6,13 @@ import type {} from './locales.ts'
 import css from './RunstateBody.module.css'
 
 /** Body props: the session-scoped run-state selector plus copy. */
-export type RunstateBodyProps = PropsRuntime<'sidebar.right.pane.tab'> & PropsLocale<'runstate'>
+export type RunstateBodyProps =
+  & PropsRuntime<'sidebar.right.pane.tab'>
+  & PropsLocale<'runstate'>
 
 /** Render the run-state log for one Session. */
 export function RunstateBody({ useRunstate, t }: RunstateBodyProps): ReactNode {
-  const entries = useRunstate(s => s.entries)
+  const entries = useRunstate?.(s => s.entries)
   const scrollRef = useRef<HTMLDivElement>(null)
 
   // Follow the tail as operations stream in, but only when the user is already
@@ -22,7 +24,7 @@ export function RunstateBody({ useRunstate, t }: RunstateBodyProps): ReactNode {
     if (distance < 24) el.scrollTop = el.scrollHeight
   }, [entries])
 
-  if (entries.length === 0) {
+  if (entries === undefined || entries.length === 0) {
     return <div className={css.empty}>{t('empty')}</div>
   }
 

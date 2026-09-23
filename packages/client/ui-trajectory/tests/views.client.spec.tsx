@@ -271,6 +271,8 @@ async function bench(snapshot = historySnapshot(NODES)) {
   const { events, views } = uiConversation
   const targetSources: ConversationTargetSources = {
     chat: createSnapshotStore<ChatSnapshot | undefined>(undefined),
+    // The run-state target joined the view map; this bench never renders it.
+    runstate: createSnapshotStore<ConversationViewSnapshotMap['runstate'] | undefined>(undefined),
     trajectory: trajectoryStore,
   }
   const binding: ConversationBinding = {

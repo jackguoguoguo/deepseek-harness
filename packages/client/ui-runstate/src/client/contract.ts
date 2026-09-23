@@ -83,7 +83,12 @@ declare module '@deepseek-ai/dsh-client-ui-conversation/client' {
 
 declare module '@deepseek-ai/dsh-client-ui-slots' {
   interface SessionStandardProps {
-    /** Selector hook over the current Session's run state. */
-    useRunstate: SnapshotSelectorHook<RunstateSnapshot>
+    /**
+     * Selector hook over the current Session's run state. Optional in the
+     * shared contract: only the run-state window and review badge consume it,
+     * so other session-scoped slots are not forced to provide it. The run-state
+     * package re-declares it as required on its own component props.
+     */
+    useRunstate?: SnapshotSelectorHook<RunstateSnapshot>
   }
 }
